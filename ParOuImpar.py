@@ -40,9 +40,12 @@ while jogando:
 
     except ValueError:
         print('\033[1;31mEntrada inválida.\033[m')
+
 print(f'\033[1;31mFIM DE JOGO! \033[mVocê venceu {vitorias} vezes.')
+
 while (escolha := input('Quer jogar novamente? [S/N] ').strip().upper()) not in ('S', 'N'):
     print(f'\033[1;31mEscolha inválida.\033[m')
+
 if escolha == 'S':
     rodando = True
 else:
