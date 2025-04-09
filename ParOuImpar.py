@@ -36,17 +36,20 @@ while jogando:
         else:
             print('\033[1;31mVocê perdeu...\033[m')
             sleep(2)
-            break
+            print(f'\033[1;31mFIM DE JOGO! \033[mVocê venceu {vitorias} vezes.')
+
+            while True:
+                reiniciar = input('Quer jogar novamente? [S/N] ').strip().upper()
+                if reiniciar == 'S':
+                    vitorias = 0
+                    limpar()
+                    break
+                elif reiniciar == 'N':
+                    jogando = False
+                    input('Pressione ENTER para sair. ')
+                    break
+                else:
+                    print('\033[1;31mEscolha inválida.\033[m')
 
     except ValueError:
         print('\033[1;31mEntrada inválida.\033[m')
-
-print(f'\033[1;31mFIM DE JOGO! \033[mVocê venceu {vitorias} vezes.')
-
-while (escolha := input('Quer jogar novamente? [S/N] ').strip().upper()) not in ('S', 'N'):
-    print(f'\033[1;31mEscolha inválida.\033[m')
-
-if escolha == 'S':
-    rodando = True
-else:
-    input('Pressione ENTER para sair.')
